@@ -1,0 +1,18 @@
+sequential = false
+pipeline_placement = "start"
+max_pipeline_length = 80
+skip_external_parse_errors = true
+explicit_optional_access = false
+
+[groups]
+
+[rules]
+single_call_command = "off"
+max_function_body_length = "off"
+print_and_return_data = "off"
+redundant_ignore = "off"
+add_label_to_error = "off"
+catch_builtin_error_try = "off"
+screaming_snake_constants = "off"
+check_typed_flag_before_use = "off"
+error_make_for_non_fatal = "off"

@@ -1,0 +1,253 @@
+# ——— use-grammars ————————————————————————————————————————————————————————————
+[use-grammars]
+    only = [
+        'awk',
+        'bash',
+        'bibtex',
+        'c',
+        'c-sharp',
+        'cmake',
+        'comment',
+        'cpp',
+        'css',
+        'csv',
+        'cython',
+        'debian',
+        'diff',
+        'dockerfile',
+        'fish',
+        'git-config',
+        'git-rebase',
+        'graphql',
+        'hosts',
+        'html',
+        'ini',
+        'ink',
+        'java',
+        'javascript',
+        'jq',
+        'jsdoc',
+        'json',
+        'json5',
+        'just',
+        'kdl',
+        'latex',
+        'llvm',
+        'log',
+        'mail',
+        'make',
+        'markdown',
+        'matlab',
+        'mermaid',
+        'nginx',
+        'nu',
+        'passwd',
+        'pem',
+        'php',
+        'powershell',
+        'properties',
+        'python',
+        'regex',
+        'robot',
+        'rshtml',
+        'rust',
+        'rust-format-args',
+        'scss',
+        'sql',
+        'sshclientconfig',
+        'svelte',
+        'task',
+        'todotxt',
+        'toml',
+        'tsx',
+        'typescript',
+        'xml',
+        'yaml',
+    ]
+
+# ——— language-server.nu-lint —————————————————————————————————————————————————
+[language-server.nu-lint]
+    command = 'nu-lint'
+    args    = [ '--lsp' ]
+
+# ——— language-server.nu-lsp ——————————————————————————————————————————————————
+[language-server.nushell]
+    command = 'nu'
+    args    = [ '--lsp' ]
+
+# ——— language-server.vscode-json-language-server —————————————————————————————
+[language-server.vscode-json-language-server]
+    command = 'vscode-json-language-server'
+    args    = [ '--stdio' ]
+
+    [language-server.vscode-json-language-server.config]
+        provideFormatter      = false
+        json.schemas          = [
+            { fileMatch = [ 'plugin.json' ], folderUri = '.claude-plugin', url = 'https://www.schemastore.org/claude-code-plugin-manifest.json' },
+            { fileMatch = [ 'marketplace.json' ], folderUri = '.claude-plugin', url = 'https://www.schemastore.org/claude-code-marketplace.json' },
+            { fileMatch = [ 'tsconfig.json', 'tsconfig.*.json' ], url = 'https://json.schemastore.org/tsconfig.json' },
+            { fileMatch = [ 'package.json' ], url = 'https://json.schemastore.org/package.json' },
+            { fileMatch = [ 'settings.json' ], folderUri = '.claude', url = 'https://json.schemastore.org/claude-code-settings.json' },
+            { fileMatch = [ '.oxfmtrc.json' ], url = 'file:///home/ramda/.bun/install/global/node_modules/oxfmt/configuration_schema.json' },
+            { fileMatch = [ '.oxlintrc.json' ], url = 'file:///home/ramda/.bun/install/global/node_modules/oxlint/configuration_schema.json' },
+            { fileMatch = [ 'dprint.jsonc' ], schema = { type = 'object', properties = { typescript = { '$ref' = 'https://plugins.dprint.dev/dprint/dprint-plugin-typescript/latest/schema.json' }, json = { '$ref' = 'https://plugins.dprint.dev/dprint/dprint-plugin-json/latest/schema.json' }, markdown = { '$ref' = 'https://plugins.dprint.dev/dprint/dprint-plugin-markdown/latest/schema.json' }, yaml = { '$ref' = 'https://plugins.dprint.dev/g-plane/pretty_yaml/latest/schema.json' }, oxc = { '$ref' = 'https://plugins.dprint.dev/dprint/dprint-plugin-oxc/latest/schema.json' }, ruff = { '$ref' = 'https://plugins.dprint.dev/dprint/dprint-plugin-ruff/latest/schema.json' } } } }
+        ]
+        json.validate.enable  = true
+        json.format.enable    = false
+        jsonc.validate.enable = true
+        jsonc.format.enable   = false
+
+# ——— language-server.rust-analyzer ———————————————————————————————————————————
+[language-server.rust-analyzer]
+    command = 'rust-analyzer'
+    args    = []
+
+    [language-server.rust-analyzer.config]
+        check.command  = 'clippy'
+        cargo.features = 'all'
+
+# ——— language-server.superhtml ———————————————————————————————————————————————
+[language-server.superhtml]
+    command = 'superhtml'
+    args    = [ 'lsp' ]
+
+# ——— language-server.dprint ——————————————————————————————————————————————————
+[language-server.dprint]
+    command = 'dprint'
+    args    = [ 'lsp', '--config-discovery=global' ]
+
+    [language-server.dprint.config]
+        provideFormatter = true
+
+# ——— language-server.lemminx —————————————————————————————————————————————————
+[language-server.lemminx]
+    command = 'lemminx'
+    args    = []
+
+    [language-server.lemminx.config]
+        xml.file-associations                  = [
+            { pattern = '**/*.xsd', systemId = 'http://www.w3.org/2001/XMLSchema.xsd' },
+        ]
+        xml.format.joinCDATALines              = false
+        xml.format.joinContentLines            = false
+        xml.format.preserveAttributeLineBreaks = true
+        xml.format.spaceBeforeEmptyCloseTag    = true
+        xml.format.splitAttributes             = 'alignWithFirstAttr'
+        xml.trace.server                       = 'verbose'
+        xml.validation.enabled                 = true
+        xml.validation.schema.enabled          = 'always'
+
+# ——— language-server.oxlint ——————————————————————————————————————————————————
+[language-server.oxlint]
+    command = 'oxlint'
+    args    = [ '--type-check', '--lsp' ]
+
+    [language-server.oxlint.config]
+        provideFormatter        = false
+        run                     = 'onSave'
+        typeAware               = true
+        fixKind                 = 'safe_fix_or_suggestion'
+        unusedDisableDirectives = 'deny'
+
+# ——— language-server.ty ——————————————————————————————————————————————————————
+[language-server.ty]
+    command = 'ty'
+    args    = [ 'server' ]
+
+    [language-server.ty.config]
+        inlayHints.callArgumentNames = false
+        experimental.rename          = true
+        experimental.autoImport      = true
+
+# ——— language-server.ruff ————————————————————————————————————————————————————
+[language-server.ruff]
+    command = 'ruff'
+    args    = [ 'server', '-q', '--preview' ]
+
+    [language-server.ruff.config]
+        settings.lineLength                   = 100
+        settings.logLevel                     = 'debug'
+        settings.lint.preview                 = true
+        settings.lint.ignore                  = [ 'E501' ]
+        settings.format.preview               = true
+        settings.format.quote-style           = 'single'
+        settings.format.docstring-code-format = true
+        settings.format.indent-style          = 'space'
+
+# ——— language.nu —————————————————————————————————————————————————————————————
+[[language]]
+    name             = 'nu'
+    auto-format      = true
+    language-servers = [ 'nu-lint', 'nushell' ]
+    formatter        = { command = 'topiary', args = [
+        'format',
+        '--language',
+        'nu'
+    ] }
+    soft-wrap.enable = true
+    indent           = { tab-width = 4, unit = ' ' }
+
+# ——— language.py —————————————————————————————————————————————————————————————
+[[language]]
+    name             = 'python'
+    auto-format      = true
+    roots            = [
+        'pyproject.toml',
+        'setup.py',
+        'pixi.lock',
+        'pyrightconfig.json',
+        'requirements.txt',
+        '.venv/',
+        '.pixi/envs/default/'
+    ]
+    formatter        = { command = 'ruff', args = [ 'format', '-' ] }
+    language-servers = [ 'ruff', 'ty' ]
+    indent           = { tab-width = 4, unit = ' ' }
+    soft-wrap.enable = true
+
+# ——— language.json ———————————————————————————————————————————————————————————
+[[language]]
+    name             = 'json'
+    indent           = { tab-width = 4, unit = ' ' }
+    soft-wrap.enable = true
+    language-servers = [ 'vscode-json-language-server', 'dprint' ]
+
+# ——— language.jsonc ——————————————————————————————————————————————————————————
+[[language]]
+    name             = 'jsonc'
+    indent           = { tab-width = 4, unit = ' ' }
+    soft-wrap.enable = true
+    language-servers = [ 'vscode-json-language-server', 'dprint' ]
+
+# ——— language.html ———————————————————————————————————————————————————————————
+[[language]]
+    name             = 'html'
+    auto-format      = true
+    formatter        = { command = 'superhtml', args = [ 'fmt', '--stdin' ] }
+    soft-wrap.enable = true
+
+# ——— language.toml ———————————————————————————————————————————————————————————
+[[language]]
+    name             = 'toml'
+    soft-wrap.enable = true
+
+# ——— language.xml ————————————————————————————————————————————————————————————
+[[language]]
+    name             = 'xml'
+    auto-format      = true
+    language-servers = [ 'lemminx' ]
+    soft-wrap.enable = true
+
+# ——— language.markdown ———————————————————————————————————————————————————————
+[[language]]
+    name             = 'markdown'
+    auto-format      = true
+    soft-wrap.enable = true
+    language-servers = [ 'marksman', 'markdown-oxide', 'rumdl', 'dprint' ]
+
+# ——— language.typescript —————————————————————————————————————————————————————
+[[language]]
+    name             = 'typescript'
+    language-servers = [ 'oxlint', 'dprint', 'typescript-language-server' ]
+    auto-format      = true
+    soft-wrap.enable = true

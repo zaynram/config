@@ -1,0 +1,34 @@
+{
+    "lineWidth": 90,
+    "json": {
+        "preferSingleLine": true,
+        "array.preferSingleLine": true,
+        "commentLine.forceSpaceAfterSlashes": true,
+        "trailingCommas": "never",
+        "object.preferSingleLine": true,
+        "ignoreNodeCommentText": "!dprint",
+        "indentWidth": 4
+    },
+    "markdown": {
+    },
+    "oxc": {
+        "trailingCommas": "es5",
+        "arrowParentheses": "asNeeded",
+        "expand": "never",
+        "experimentalTernaries": true,
+        "quoteStyle": "single",
+        "semicolons": "asNeeded",
+        "indentWidth": 4,
+        "experimentalOperatorPosition": "start",
+        "experimentalSortImports": { "internalPattern": ["#", "%", "&"] }
+    },
+    "yaml": {
+    },
+    "excludes": ["**/node_modules", "**/*-lock.json"],
+    "plugins": [
+        "https://plugins.dprint.dev/json-0.21.3.wasm",
+        "https://plugins.dprint.dev/markdown-0.22.1.wasm",
+        "https://plugins.dprint.dev/oxc-0.24.0.wasm",
+        "https://plugins.dprint.dev/g-plane/pretty_yaml-v0.6.0.wasm"
+    ]
+}

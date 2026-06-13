@@ -1,0 +1,10 @@
+**/.claude/settings.local.json
+**/.claude/worktees/
+**/.venv/
+**/node_modules/
+**/*.pyc
+**/*.egg-info
+**/.*cache*
+**/_*cache*
+**/.env.local
+**/dev.vars

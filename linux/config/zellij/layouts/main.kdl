@@ -1,0 +1,29 @@
+layout {
+    default_tab_template {
+        children
+        pane size=1 borderless=true split_direction="vertical" {
+            plugin location="zellij:compact-bar"
+        }
+    }
+    tab name="main" hide_floating_panes=true split_direction="vertical" {
+        pane size="30%" name="terminal" command="nu" focus=true {
+            args "--login"
+        }
+        pane size="70%" stacked=true {
+            pane name="editor" command="hx" close_on_exit=false focus=true {
+                args "."
+            }
+            pane name="claude" command="claude" start_suspended=true {
+                args "agents"
+            }
+        }
+    }
+    tab name="repl" {
+        pane stacked=true {
+            pane name="node" command="bun" close_on_exit=false start_suspended=true {
+                args "--bun" "repl"
+            }
+            pane name="python" command="python" close_on_exit=false start_suspended=true
+        }
+    }
+}
