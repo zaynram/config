@@ -12,10 +12,11 @@ def main [
   open $MANIFEST | par-each {|row|
     let src = $row.src | path expand
     let dst = $row.dst | prepend $DIR | path join
-    mkdir ($dst | path dirname)
     if $load {
+      mkdir ($src | path dirname)
       cp --update --verbose $dst $src
     } else if $dump {
+      mkdir ($dst | path dirname)
       cp --update --verbose $src $dst
     }
   } | return
