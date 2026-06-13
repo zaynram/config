@@ -9,7 +9,7 @@ def main [
 ]: nothing -> nothing {
   if $show { return (open $MANIFEST) }
   if not $load and not $dump { return (help main) }
-  open $MANIFEST | par-each {|row|
+  for $row in (open $MANIFEST) {
     let src = $row.src | path expand
     let dst = $row.dst | prepend $DIR | path join
     if $load {
@@ -19,5 +19,5 @@ def main [
       mkdir ($dst | path dirname)
       cp --update --verbose $src $dst
     }
-  } | return
+  } 
 }
