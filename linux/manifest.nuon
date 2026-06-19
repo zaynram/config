@@ -1,6 +1,26 @@
 [
   [disk repo];
   [
+    ~/.local/share/nushell/modules/custom/utilities.nu
+    data/nushell/modules/custom/utilities.nu
+  ]
+  [
+    ~/.local/share/nushell/modules/custom/path.nu
+    data/nushell/modules/custom/path.nu
+  ]
+  [
+    ~/.local/share/nushell/modules/custom/alias.nu
+    data/nushell/modules/custom/alias.nu
+  ]
+  [
+    ~/.local/share/nushell/modules/custom/plugin.nu
+    data/nushell/modules/custom/plugin.nu
+  ]
+  [
+    ~/.local/share/nushell/modules/custom/mod.nu
+    data/nushell/modules/custom/mod.nu
+  ]
+  [
     ~/.config/nushell/autoload/multiplexer.nu
     config/nushell/autoload/multiplexer.nu
   ]
