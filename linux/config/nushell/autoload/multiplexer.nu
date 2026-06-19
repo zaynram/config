@@ -1,3 +1,4 @@
+# nu-lint-ignore-file: string_param_as_path
 module multiplexer {
   # Attach or create a zellij session for a known project.
   #
@@ -19,9 +20,8 @@ module multiplexer {
       }
       if not $resume {
         await { zellij attach $session --create-background }
-        zellij --session $session action override-layout main
-      }
-      zellij attach $session
+        await { zellij --session $session action override-layout main }
+      }; zellij attach $session
     } catch {
       throw "failed to attach (or create) session" --data {
         session: (metadata $session)
