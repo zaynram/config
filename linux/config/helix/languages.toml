@@ -159,6 +159,15 @@
         experimental.rename          = true
         experimental.autoImport      = true
 
+# ——— language-server.vale-ls —————————————————————————————————————————————————
+[language-server.vale-ls]
+    command = 'vale-ls'
+    args    = []
+
+    [language-server.vale-ls.config]
+        installVale   = false
+        syncOnStartup = true
+
 # ——— language-server.ruff ————————————————————————————————————————————————————
 [language-server.ruff]
     command = 'ruff'
@@ -243,7 +252,12 @@
     name             = 'markdown'
     auto-format      = true
     soft-wrap.enable = true
-    language-servers = [ 'marksman', 'markdown-oxide', 'rumdl', 'dprint' ]
+    language-servers = [ 'marksman', 'markdown-oxide', 'rumdl', 'vale-ls' ]
+    formatter        = { command = 'rumdl', args = [
+        'check',
+        '--fix',
+        '--stdin'
+    ] }
 
 # ——— language.typescript —————————————————————————————————————————————————————
 [[language]]
